@@ -302,10 +302,9 @@ class Connector {
 	function connect($binddn, $bindpw, $hostname)
 	{
 		$e = error_reporting(0);
-		if (! $this->cid) 
-		{
+		if (! $this->cid) {
 			if ($this->cid=ldap_connect($hostname)) {
-				@ldap_set_option($this->cid, LDAP_OPT_PROTOCOL_VERSION, $this->protocol);
+				$r = ldap_set_option($this->cid, LDAP_OPT_PROTOCOL_VERSION, $this->protocol);
 				$this->error = 'No Error';
 				if ($this->bid = ldap_bind($this->cid, $binddn, $bindpw)) {
 					$this->error = 'Success';
