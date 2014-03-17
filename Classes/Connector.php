@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace B13\LdapLib;
 
