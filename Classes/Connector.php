@@ -341,6 +341,7 @@ class Connector {
 			return(0);
 		}
 		
+		ldap_set_option($this->cid, LDAP_OPT_REFERRALS, 0);
 		$this->sr = ldap_search($this->cid, $this->basedn, $filter);
 		$this->error = ldap_error($this->cid);
 		$this->resetResult();
